@@ -50,15 +50,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
   // <script type='text/javascript' src='http://spreadsheets.google.com/feeds/list/0AhFZfsMCVP7rdGJOVm04LWRsanlIS1ZST3FpcllIdHc/5/public/basic?alt=json-in-script&callback=myFunc'></script>
 
 
-var goldStar = {
-  path: 'M 125,5 155,90 245,90 175,145 200,230 125,180 50,230 75,145 5,90 95,90 z',
-  fillColor: 'yellow',
-  fillOpacity: 0.8,
-  scale: .06,
-  strokeColor: 'gold',
-  strokeWeight: 1
-};
-
 function showInfo(data, tabletop) {
   console.log('fuck you kill all cops');
   window.theData = data;
@@ -84,6 +75,36 @@ function showInfo(data, tabletop) {
     //});
   }
   window.alexJobs = window.alexJobs.sort(function(a, b){
+    if (Date.parse(a.completed) > Date.parse(b.completed)) {
+      return 1;
+    } else if (Date.parse(a.completed) < Date.parse(b.completed)) {
+      return -1;
+    } else {
+      return 0;
+    }
+  });
+
+  window.getJobsByZone = function(zone){
+    var arrReturn = [];
+    for (var i = 0; i < entries.length; i++){
+      if (entries[i].merchcluster === zone){
+        arrReturn.push(entries[i]);
+      }
+    }
+    return arrReturn;
+  }
+
+  window.getJobsByObjProp = function(objKey, objVal){
+    var arrReturn = [];
+    for (var i = 0; i < entries.length; i++){
+      if (entries[i][objKey] === objVal){
+        arrReturn.push(entries[i]);
+      }
+    }
+    return arrReturn; 
+  }
+
+  window.entries = window.entries.sort(function(a, b){
     if (Date.parse(a.completed) > Date.parse(b.completed)) {
       return 1;
     } else if (Date.parse(a.completed) < Date.parse(b.completed)) {

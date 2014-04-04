@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
+    rel="stylesheet">
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"
+    rel="stylesheet">
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map-canvas {
+        vertical-align:
+        top; height: 1000px;
+        width: 1000px
+      }
+      .map-td { vertical-align: top; width: 1000px }
+      .map-st { vertical-align: top; width: 300px }
+    </style>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMk9UfSIhH4R_X3ffpiQKSZUOGRMsXhlk&sensor=false"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+      <script type="text/javascript" src="bower_components/tabletop/src/tabletop.js"></script>
+    <script type="text/javascript" src="./streetmap.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"
+    ></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Mapulator</a>
+      </div>
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active">
+            <a href="#">Home</a>
+          </li>
+          <li>
+            <a href="#" class="showCorners" >apply grid</a>
+          </li>
+          <li>
+            <a href="#" class"applyGrid" >reverse geocode</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+    <table width=1400>
+      <tr>
+        <td class"map-td">
+          <div id="map-canvas"/>
+        </td>
+      </tr>
+      <tr>
+      <td class="map-st">
+        <div id="streets">
+          <ul></ul>
+        </div>
+        </td>
+      </tr>
+    </table>
+    </div>
+  </body>
+</html>
